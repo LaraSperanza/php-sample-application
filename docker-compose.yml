@@ -1,0 +1,41 @@
+# Guarda esto como docker-compose.yml (Versión Corregida)
+
+services:
+  web:
+    build: .
+    container_name: php-sample-web
+    ports:
+      - "8080:80"
+    volumes:
+      # 1. Config de Apache (igual que antes)
+      - ./docker-apache.conf:/etc/apache2/sites-available/000-default.conf
+      # 2. Config de DB (igual que antes)
+      - ./docker-db-connection.php:/var/www/html/config-dev/db-connection.php
+      # 3. (LÍNEA NUEVA) Sobrescribimos el bootstrap.php
+      - ./docker-bootstrap.php:/var/www/html/bootstrap.php
+    networks:
+      - app-network
+    depends_on:
+      - db
+
+  db:
+    image: mariadb:10.5
+    container_name: php-sample-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: sample
+      MYSQL_USER: sampleuser
+      MYSQL_PASSWORD: samplepass
+      MYSQL_ROOT_PASSWORD: rootpassword
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+      - db_data:/var/lib/mysql
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db_data:
