@@ -15,6 +15,5 @@ set_exception_handler(
         header($_SERVER["SERVER_PROTOCOL"] . " 500 Internal Server Error", true, 500);
         $dateTime = new DateTime();
         file_put_contents(__DIR__ . "/logs/error.log", "[{$dateTime->format("c")}] " . $exception->getMessage() . "\n", FILE_APPEND | LOCK_EX);
-        echo "Fatal Exception: " . $exception->getMessage();
     }
 );

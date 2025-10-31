@@ -19,22 +19,13 @@ if (empty($db_host) || empty($db_name) || empty($db_user) || empty($db_pass)) {
 }
 
 // 3. Retorna el objeto PDO para la conexión.
-// Los archivos dic/users.php y dic/tweets.php no necesitan cambios,
-// ya que ellos simplemente hacen un 'require' de este archivo.
-try {
-    return new PDO(
-        "mysql:host={$db_host};dbname={$db_name}",
-        $db_user,
-        $db_pass,
-        [
-            PDO::ATTR_PERSISTENT => true,
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION // Forzar excepciones
-        ]
-    );
-} catch (PDOException $e) {
-    // ¡PASO DE DEPURACIÓN!
-    // Imprime el error exacto para que podamos verlo.
-    // Esto es lo que nos dirá si es "Connection Timed Out" o "Access Denied"
-    exit("Database Connection Error: " . $e->getMessage());
-}
+return new PDO(
+    "mysql:host={$db_host};dbname={$db_name}",
+    $db_user,
+    $db_pass,
+    [
+        PDO::ATTR_PERSISTENT => true,
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION // Forzar excepciones
+    ]
+);
 ?>
