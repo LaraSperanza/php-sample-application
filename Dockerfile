@@ -36,5 +36,13 @@ RUN wget https://getcomposer.org/installer -O composer-setup.php && \
 # Esto ejecutará 'install-aws' que creamos en el Makefile
 RUN make install-aws
 
-# 9. Damos permisos a Apache
+# 9. Elimina los archivos de texto incorrectos que actúan como punteros
+RUN rm /var/www/html/web/css/bootstrap.min.css
+RUN rm /var/www/html/web/fonts
+
+# 10. Crea los enlaces simbólicos correctos a los archivos en vendor/
+RUN ln -s /var/www/html/vendor/twbs/bootstrap/dist/css/bootstrap.min.css /var/www/html/web/css/bootstrap.min.css
+RUN ln -s /var/www/html/vendor/twbs/bootstrap/dist/fonts /var/www/html/web/fonts
+
+# 11. Damos permisos a Apache
 RUN chown -R www-data:www-data /var/www/html
