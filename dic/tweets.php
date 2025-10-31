@@ -1,5 +1,5 @@
 <?php
 
 return new Service\TweetsService(
-    require "config/db-connection.php"
+    require "config-aws/db-connection.php"
 );
