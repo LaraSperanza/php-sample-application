@@ -22,6 +22,8 @@ COPY docker-apache.conf /etc/apache2/sites-available/000-default.conf
 # 5. Copiamos el código de la aplicación
 COPY . /var/www/html
 
+RUN cp /var/www/html/docker-bootstrap.php /var/www/html/bootstrap.php
+
 # 6. Establecemos el directorio de trabajo
 WORKDIR /var/www/html
 
