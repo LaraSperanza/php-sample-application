@@ -1,12 +1,12 @@
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
-    background-color: #8233b7;
+    background-color: #337AB7;
 }
 
 body{
-    background-color: #F0FFFF;
+    background-color: #3b0766;
 }
 .navbar-default .navbar-collapse, .navbar-default{
-    background-color: white;
+    background-color: rgb(196, 98, 98);
 }
 
 a{
