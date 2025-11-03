@@ -5,7 +5,7 @@ $lastJoinedUsers = (require "dic/users.php")->getLastJoined();
 switch (require "dic/negotiated_format.php") {
     case "text/html":
         (new Views\Layout(
-            "Twitter - Newcomers", new Views\Users\Listing($lastJoinedUsers), true
+            "Twitter - Newcomers V2", new Views\Users\Listing($lastJoinedUsers), true
         ))();
         exit;
 

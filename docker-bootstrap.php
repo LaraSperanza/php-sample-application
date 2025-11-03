@@ -1,8 +1,6 @@
 <?php
 
-// Guarda esto como docker-bootstrap.php
-
-// 1. Cargar el autoloader de Composer (LA LÍNEA QUE FALTABA)
+// 1. Cargar el autoloader de Composer
 require "vendor/autoload.php";
 
 // 2. Cargar el autoloader de la aplicación

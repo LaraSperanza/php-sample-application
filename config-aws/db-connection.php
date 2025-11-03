@@ -1,7 +1,5 @@
 <?php
 
-// Guarda esto como config-aws/db-connection.php
-
 // 1. Lee las variables de entorno inyectadas por ECS desde Parameter Store.
 // (Usaremos los nombres de parámetro que ya creaste, pero sin el prefijo /app/)
 $db_host = getenv('DB_HOST');

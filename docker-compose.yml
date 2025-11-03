@@ -1,5 +1,3 @@
-# Guarda esto como docker-compose.yml (Versión Corregida)
-
 services:
   web:
     build: .
@@ -7,11 +5,8 @@ services:
     ports:
       - "8080:80"
     volumes:
-      # 1. Config de Apache (igual que antes)
       - ./docker-apache.conf:/etc/apache2/sites-available/000-default.conf
-      # 2. Config de DB (igual que antes)
       - ./docker-db-connection.php:/var/www/html/config-dev/db-connection.php
-      # 3. (LÍNEA NUEVA) Sobrescribimos el bootstrap.php
       - ./docker-bootstrap.php:/var/www/html/bootstrap.php
     networks:
       - app-network
