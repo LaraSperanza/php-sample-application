@@ -6,7 +6,7 @@ body{
     background-color: #F0FFFF;
 }
 .navbar-default .navbar-collapse, .navbar-default{
-    background-color: white;
+    background-color: red;
 }
 
 a{
